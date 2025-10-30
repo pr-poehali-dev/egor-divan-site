@@ -24,7 +24,7 @@ export default function Index() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl md:text-3xl font-bold text-primary">ЕгорДиван</h1>
           <nav className="hidden md:flex gap-6">
-            {['Главная', 'Услуги', 'Цены', 'Отзывы', 'О компании', 'Контакты'].map((item) => (
+            {['Главная', 'Услуги', 'Цены', 'Наши работы', 'Отзывы', 'О компании', 'Контакты'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -157,6 +157,64 @@ export default function Index() {
               </table>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section id="наши работы" className="py-20 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+            Наши работы
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                image: 'https://cdn.poehali.dev/projects/3ea47bec-98d1-4739-91bd-4293fd067bc8/files/83325a0f-3a7c-4ce6-a099-3d05cd45b5b8.jpg',
+                title: 'Химчистка дивана',
+                description: 'До и после чистки'
+              },
+              {
+                image: 'https://cdn.poehali.dev/projects/3ea47bec-98d1-4739-91bd-4293fd067bc8/files/8972edda-a31e-4847-954a-71ae35155fc4.jpg',
+                title: 'Кресло после чистки',
+                description: 'Велюровое кресло'
+              },
+              {
+                image: 'https://cdn.poehali.dev/projects/3ea47bec-98d1-4739-91bd-4293fd067bc8/files/aff3c7aa-7a3c-4193-8cd6-de3c9ade2cef.jpg',
+                title: 'Кожаный диван',
+                description: 'Идеальная чистота'
+              },
+              {
+                image: 'https://cdn.poehali.dev/projects/3ea47bec-98d1-4739-91bd-4293fd067bc8/files/45ee0ce6-e722-4fd1-a1f8-d0f0e093d63e.jpg',
+                title: 'Велюровый диван',
+                description: 'Глубокая чистка'
+              },
+              {
+                image: 'https://cdn.poehali.dev/projects/3ea47bec-98d1-4739-91bd-4293fd067bc8/files/f5b82d4e-a9dd-413c-a4ea-63b1c4dedb87.jpg',
+                title: 'Тканевый диван',
+                description: 'Безупречный результат'
+              },
+              {
+                image: 'https://cdn.poehali.dev/projects/3ea47bec-98d1-4739-91bd-4293fd067bc8/files/7872cd15-ef20-4b77-ad94-acd2fa02fcb8.jpg',
+                title: 'Салон автомобиля',
+                description: 'Профессиональная чистка'
+              }
+            ].map((work, idx) => (
+              <Card key={idx} className="overflow-hidden group cursor-pointer hover:scale-105 transition-transform duration-300 animate-scale-in" style={{ animationDelay: `${idx * 100}ms` }}>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={work.image} 
+                    alt={work.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div className="p-4 w-full">
+                      <h3 className="text-xl font-bold text-primary mb-1">{work.title}</h3>
+                      <p className="text-foreground">{work.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
